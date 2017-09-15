@@ -1,4 +1,5 @@
 begin
+  require 'rspec/its'
   require 'simplecov'
 rescue LoadError
   # ignore
