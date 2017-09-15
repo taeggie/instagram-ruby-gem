@@ -55,7 +55,11 @@ module Instagram
       end
       return response if raw
       return response.body if no_response_wrapper
-      return Response.create( response.body, {:limit => response.headers['x-ratelimit-limit'].to_i,
+      x = response.body
+      unless x
+        x = Object.new
+      end
+      return Response.create( x, {:limit => response.headers['x-ratelimit-limit'].to_i,
                                               :remaining => response.headers['x-ratelimit-remaining'].to_i} )
     end
 
