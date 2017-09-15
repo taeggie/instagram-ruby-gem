@@ -1,5 +1,4 @@
 begin
-  require 'rspec/its'
   require 'simplecov'
 rescue LoadError
   # ignore
@@ -15,6 +14,7 @@ require File.expand_path('../../lib/instagram', __FILE__)
 
 require 'rspec'
 require 'webmock/rspec'
+require 'rspec/its'
 RSpec.configure do |config|
   config.include WebMock::API
 end
